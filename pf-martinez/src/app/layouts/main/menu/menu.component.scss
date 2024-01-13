@@ -1,0 +1,29 @@
+.menu-conteiner{
+    height: 100vh;
+}
+
+.menu-icon {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+  
+.menu-icon:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.logo-container {
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    background-color: #3498db; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .logo-image {
+    width: 80%; 
+    height: auto;
+    border-radius: 50%; 
+  }
