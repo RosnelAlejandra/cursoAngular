@@ -1,0 +1,26 @@
+export const studentsArrayInitial = [
+    {
+        id: 1,
+        firstName: 'Mario',
+        lastName: 'Perez',
+        email: 'mar@user.com',
+        role: 'ESTUDIENTE',
+        dateIncription: '2023-12-01T00:00:00',
+        course: [5000, 5001],
+        career: [],
+        statusPay: 1,
+        numberPay: '',
+      },
+      {
+        id: 2,
+        firstName: 'Rosario',
+        lastName: 'Perez',
+        email: 'mar@user.com',
+        role: 'ESTUDIENTE',
+        dateIncription: '2023-11-01T00:00:00',
+        course: [],
+        career: [1001],
+        statusPay: 2,
+        numberPay: 'T5467854388965',
+      },
+]

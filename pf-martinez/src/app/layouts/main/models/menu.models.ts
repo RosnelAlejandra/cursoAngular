@@ -1,6 +1,6 @@
 export interface SectionList {
     name: string;
     icon: any;
-    updated: Date;
+    updated?: Date | null;
 }
   

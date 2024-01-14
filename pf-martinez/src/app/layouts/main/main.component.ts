@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { StudentsComponent } from './views/students/students.component';
+import { SectionList } from './models/menu.models';
+import { menuGeneral, menuStudents } from './mocks/data';
 
 @Component({
   selector: 'app-main',
@@ -7,5 +9,9 @@ import { StudentsComponent } from './views/students/students.component';
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  studentComponent = StudentsComponent;
+  showFiller = false;
+
+  menu1: SectionList[] = menuStudents;
+  menu2: SectionList[] = menuGeneral;
+  
 }

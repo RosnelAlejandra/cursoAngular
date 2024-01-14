@@ -3,7 +3,7 @@
   <mat-list-item>
     <mat-icon matListItemIcon ng>{{ folder.icon }}</mat-icon>
     <div matListItemTitle>{{folder.name}}</div>
-    <div matListItemLine>{{folder.updated | date}}</div>
+    <div matListItemLine *ngIf="folder.updated">{{folder.updated | date}}</div>
   </mat-list-item>
 </ng-container>
 

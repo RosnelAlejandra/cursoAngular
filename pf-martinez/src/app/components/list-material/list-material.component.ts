@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { SectionList } from '../../layouts/main/menu/models/menu.models';
+import { SectionList } from '../../layouts/main/models/menu.models';
 
 @Component({
   selector: 'app-list-material',
