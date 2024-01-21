@@ -11,8 +11,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+import { SharedModule } from '../../../../shared/shared.module';
 @NgModule({
   declarations: [
     StudentsComponent,
@@ -21,13 +22,16 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule,
+    SharedModule
   ],
   exports:[StudentsComponent]
 })

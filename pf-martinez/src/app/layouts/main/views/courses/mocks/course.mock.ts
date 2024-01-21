@@ -1,10 +1,10 @@
 export const dataCourse = [
     {
         id: 5000,
-        name: 'Angular',
+        name: 'Pintura',
         durations: 3,
         typeDuration: 'weeks',
-        description: 'Aprenderás a crear y mantener aplicaciones web en una sola página con Angular',
+        description: '',
         price: 30000,
         modality: 'online',
         idCareer: [1001],
@@ -16,10 +16,10 @@ export const dataCourse = [
     },
     {
         id: 5001,
-        name: 'Next.js',
+        name: 'Dibujo',
         durations: 5,
         typeDuration: 'weeks',
-        description: 'En este curso aprenderás los fundamentos del Server Side Rendering. Crearás una aplicación web autoadministrable con NextJS',
+        description: '',
         price: 50000,
         modality: 'online',
         idCareer: [1001],
@@ -27,14 +27,14 @@ export const dataCourse = [
         schedule:{
             start: '2024-02-01T00:00:00',
             end: '',
-        }
+        } 
     },
     {
         id: 5002,
-        name: 'React Js',
+        name: 'Imprenta',
         durations: 4,
         typeDuration: 'weeks',
-        description: 'En este curso, que es el tercer nivel de la carrera de programación, aprenderás a programar por componentes, mediante Javascript, JS, ES6, y también conocerás las ventajas de la utilización del flujos de datos',
+        description: '',
         price: 45000,
         modality: 'online',
         idCareer: [1001],
@@ -46,13 +46,13 @@ export const dataCourse = [
     },
     {
         id: 5003,
-        name: 'Diseño UX/UI',
+        name: 'Escultura',
         durations: 4,
         typeDuration: 'weeks',
-        description: 'En este curso aprenderás a hacer un research, e investigar acerca de un problema que convertirás o en una idea de app o web',
+        description: '',
         price: 45000,
         modality: 'online',
-        idCareer: [1002, 1003],
+        idCareer: [1001],
         status: 1,
         schedule:{
             start: '2024-02-01T00:00:00',
@@ -61,10 +61,10 @@ export const dataCourse = [
     },
     {
         id: 5004,
-        name: 'Prototipado',
+        name: 'Historia de la Moda',
         durations: 5,
         typeDuration: 'weeks',
-        description: 'Conocerás todo sobre el mundo del prototipado para modelar y testear tu propia web o app. Aprenderás a generar una solución rápida que te permita evaluar tu producto',
+        description: '',
         price: 35000,
         modality: 'online',
         idCareer: [1002],
@@ -76,12 +76,12 @@ export const dataCourse = [
     },
     {
         id: 5005,
-        name: 'UX Writing',
+        name: 'Piano nivel 1',
         durations: 5,
         typeDuration: 'weeks',
-        description: 'En este curso aprenderás las nociones principales sobre UX Writing, y por qué es tan importante pensar en el contenido a la hora de diseñar una interfaz',
+        description: '',
         price: 25000,
-        modality: 'online',
+        modality: 'presencial',
         idCareer: [1003],
         status: 1,
         schedule:{
@@ -95,17 +95,20 @@ export const dataCourse = [
 export const dataCareers = [
     {
         id: 1001,
-        name: 'Programación',
-        status: 1
+        name: 'Arte Contemporaneo',
+        status: 1,
+        price: 180000
     },
     {
         id: 1002,
-        name: 'Diseño UX|UI',
-        status: 1
+        name: 'Diseño & Moda',
+        status: 1,
+        price: 86000
     },
     {
-        id: 1001,
-        name: 'Product Design',
-        status: 1
+        id: 1003,
+        name: 'Musica',
+        status: 1,
+        price: 80000
     },
 ]

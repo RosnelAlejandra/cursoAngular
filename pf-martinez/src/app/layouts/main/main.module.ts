@@ -19,7 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    StudentsModule
+    StudentsModule,
   ],
   exports:[
     MainComponent,

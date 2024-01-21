@@ -18,7 +18,7 @@
 
      <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef> Fecha de Incripción </th>
-        <td mat-cell *matCellDef="let element"> {{element.dateInscription | date}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.dateIncription | date}} </td>
       </ng-container>
     
       <ng-container matColumnDef="course">
@@ -33,7 +33,18 @@
     
       <ng-container matColumnDef="pay">
         <th mat-header-cell *matHeaderCellDef> Pago </th>
-        <td mat-cell *matCellDef="let element"> {{element.pay}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.numberPay}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element"> 
+          <div class="example-button-container">
+            <button mat-icon-button color="accent" (click)="deleteStudent(element.id)">
+              <mat-icon>person_remove</mat-icon>
+            </button>
+          </div>
+        </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

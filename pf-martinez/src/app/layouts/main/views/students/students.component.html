@@ -1,7 +1,4 @@
-
-    
-
-    <mat-tab-group animationDuration="0ms">
+    <mat-tab-group #tabGroup animationDuration="0ms">
         <mat-tab label="Listado">
             <div class="table-data mt-5 p-3">
                 <div class="flex justify-content-start flex-wrap">
@@ -12,14 +9,17 @@
                 <app-page-table
                     [dataSource]="dataSource"
                     [displayedColumns]="displayedColumns"
+                    (deleteStudentById)="deleteStudentById($event)"
                 ></app-page-table>
             </div>
         </mat-tab>
         <mat-tab label="Agregar Nuevo Estudiante">
-            <app-page-form (userSubmited)="onStudentSubmiter($event)"></app-page-form>
-        </mat-tab>
-        <mat-tab label="Top 10 Estudientes">
-
+            <div class="flex justify-content-start flex-wrap">
+                <div class="flex align-items-center justify-content-center mb-1 font-italic text-lg">
+                    Formulario de Registro
+                </div>
+            </div>
+            <app-page-form class="mt-1 " (userSubmited)="onStudentSubmiter($event)"></app-page-form>
         </mat-tab>
     </mat-tab-group>
 

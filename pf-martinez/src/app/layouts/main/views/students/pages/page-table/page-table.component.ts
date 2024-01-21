@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { StudentModel } from '../../models/studens.model';
 
 
@@ -14,5 +14,14 @@ export class PageTableComponent {
 
   @Input()
   dataSource: StudentModel[] = [];
+
+  @Output()
+  deleteStudentById = new EventEmitter();
+
+
+  deleteStudent(id: number) {
+    console.log('deleteStudent', id);
+    this.deleteStudentById.emit(id);
+  }
 
 }

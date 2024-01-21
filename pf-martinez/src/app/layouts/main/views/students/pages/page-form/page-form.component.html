@@ -1,9 +1,15 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid m-1 ">
     <div class="col-6">
-     <mat-form-field class="w-full">
+        <mat-form-field class="w-full">
          <mat-label>Nombre</mat-label>
          <input formControlName="firstName" matInput type="text" >
-     </mat-form-field>
+        </mat-form-field>
+        <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="bg-red">
+           <div *ngIf="firstName?.errors?.['required']">El nombre es obligatorio.</div>
+           <div *ngIf="firstName?.errors?.['minlength']">El nombre debe tener al menos 2 caracteres.</div>
+           <div *ngIf="firstName?.errors?.['maxlength']">El nombre no debe tener más de 20 caracteres.</div>
+           <div *ngIf="firstName?.errors?.['pattern']">El nombre solo puede contener letras.</div>
+         </div>
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
@@ -19,12 +25,28 @@
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
-            <mat-label>Rol</mat-label>
-            <mat-select formControlName="role" >
-                <mat-option value="ADMIN" >ADMIN</mat-option>
-                <mat-option value="USER" >USER</mat-option>
+            <mat-label>Carreras</mat-label>
+            <mat-select name="career" multiple formControlName="career">
+                <mat-option *ngFor="let career of careers" [value]="career.id">{{ career.name }}</mat-option>
+              </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field class="w-full">
+            <mat-label>Cursos</mat-label>
+            <mat-select formControlName="course" multiple name="course">
+                  <mat-option *ngFor="let course of courses" [value]="course.id">{{ course.name +" (" + course.price + ")" }}</mat-option>
             </mat-select>
           </mat-form-field>
+    </div>
+    <div class="col-6">
+        <mat-form-field class="w-full">
+            <mat-label>Nº Comprobante Pago</mat-label>
+            <input formControlName="numberPay" matInput type="text" >
+        </mat-form-field>
+    </div>
+    <div class="col-12 flex justify-content-end mb-1">
+        <div class="total"> Total:  {{ amount | currency:'CLP' }} </div>
     </div>
     <div class="col-12 flex justify-content-end mb-1">
         <button mat-raised-button color="primary">

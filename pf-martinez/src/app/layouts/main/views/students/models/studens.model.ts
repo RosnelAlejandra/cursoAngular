@@ -3,10 +3,14 @@ export interface StudentModel{
     firstName: string;
     lastName: string;
     email: string;
-    role: string; /* Estudiente | Profesor | ADMIN */
     dateIncription: Date;
-    course: Array<number>;
-    career: Array<number>;
+    course: Array<elementCourse>;
+    career: Array<elementCourse>;
     statusPay: number; /* Pendiente de Pago | Pagado */
     numberPay?: string; /* numero de pago/deposito/trasferencia */
+}
+
+export interface elementCourse {
+    id: number; 
+    name: string;
 }

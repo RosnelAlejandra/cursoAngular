@@ -9,12 +9,14 @@ export interface CourseModel {
     idCareer: Array<number>;
     status: number;
     schedule:{
-        start: Date;
-        end?: Date;
+        start: string;
+        end?: string;
     }
 }
 
 export interface CareerModel {
     id: number;
     name: string;
+    status: number;
+    price: number;
 }

@@ -1,7 +1,13 @@
 <mat-drawer-container class="menu-conteiner" autosize>
     <mat-drawer #drawer class="menu-drawer" mode="side">
-        <div class="logo-container">
-            <img src="../../../../animations/pet_logo.jpeg" alt="Logo" class="logo-image">
+        <div class="logo">
+            <div class="logo-container">
+                <img src="" alt="Logo" class="logo-image">
+            </div>
+            <div class="text-container">
+                <p class="text-4xl border-round mt-3 vertical-align-text-top ">Bellas Artes</p>
+                <span class="text-sm font-italic vertical-align-super">Contigo Siempre</span>
+            </div>
         </div>
         <mat-list>
             <app-list-material [listArray]="menu1" [nameTitles]="'Rosnel Martinez'"></app-list-material>
@@ -15,7 +21,7 @@
             mat-icon-button class="menu-icon" aria-label="menu">
             <mat-icon>menu</mat-icon>
         </button>
-        <span class="ml-3">Universidad</span>
+        <span class="ml-3">Universidad Bellas Artes</span>
         <span class="example-spacer"></span>
     </mat-toolbar>
 
