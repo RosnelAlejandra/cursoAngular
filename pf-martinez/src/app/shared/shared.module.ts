@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DirWidthDirective } from './directives/dir-width.directive';
 import { StudentDataPipe } from './pipes/studen-data.pipe';
+import { DirTitlesDirective } from './directives/dir-titles.directive';
 
 
 
 @NgModule({
   declarations: [
-    DirWidthDirective,
-    StudentDataPipe
+    DirTitlesDirective,
+    StudentDataPipe,
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    DirWidthDirective,
+    DirTitlesDirective,
     StudentDataPipe
   ]
 })

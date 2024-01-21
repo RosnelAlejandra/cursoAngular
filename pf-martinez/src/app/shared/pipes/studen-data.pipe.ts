@@ -21,12 +21,12 @@ export class StudentDataPipe implements PipeTransform {
     }
 
     /* devuelve los carreras comprados  */
-    if (data === 2) {
+    if (data === 3) {
       return student.career.map(c => c.name).join(',');
     }
 
     /* estado del pago */
-    if (data === 3) {
+    if (data === 4) {
       return student.statusPay == 1 ? 'Pendiente por Pago' : 'Pagado'
     }
 

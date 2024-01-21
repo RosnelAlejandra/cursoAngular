@@ -18,10 +18,18 @@ export class PageTableComponent {
   @Output()
   deleteStudentById = new EventEmitter();
 
+  @Output()
+  editStudentByID = new EventEmitter();
+
 
   deleteStudent(id: number) {
     console.log('deleteStudent', id);
     this.deleteStudentById.emit(id);
+  }
+
+  editStudent(id: number) {
+    console.log('Desde la tabla: editStudent', id);
+    this.editStudentByID.emit(id);
   }
 
 }

@@ -7,7 +7,7 @@
     
       <ng-container matColumnDef="fullName">
         <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
-        <td mat-cell *matCellDef="let element"> {{element.firstName + ' ' + element.lastName }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element | studentData : 1 }} </td>
       </ng-container>
     
       <ng-container matColumnDef="email">
@@ -23,14 +23,19 @@
     
       <ng-container matColumnDef="course">
         <th mat-header-cell *matHeaderCellDef> Cursos </th>
-        <td mat-cell *matCellDef="let element"> {{element.courseName }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element | studentData : 2 }}</td>
       </ng-container>
     
       <ng-container matColumnDef="career">
         <th mat-header-cell *matHeaderCellDef> Carrera </th>
-        <td mat-cell *matCellDef="let element"> {{element.careerName}} </td>
+        <td mat-cell *matCellDef="let element"> {{ element | studentData : 3 }} </td>
       </ng-container>
     
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element">  {{ element | studentData : 4 }} </td>
+      </ng-container>
+
       <ng-container matColumnDef="pay">
         <th mat-header-cell *matHeaderCellDef> Pago </th>
         <td mat-cell *matCellDef="let element"> {{element.numberPay}} </td>
@@ -39,10 +44,17 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element"> 
-          <div class="example-button-container">
-            <button mat-icon-button color="accent" (click)="deleteStudent(element.id)">
-              <mat-icon>person_remove</mat-icon>
-            </button>
+          <div class="grid">
+            <div class="example-button-container">
+              <button mat-icon-button color="accent" (click)="deleteStudent(element.id)">
+                <mat-icon>person_remove</mat-icon>
+              </button>
+            </div>
+            <div class="example-button-container">
+              <button mat-icon-button color="accent" (click)="editStudent(element.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
           </div>
         </td>
       </ng-container>

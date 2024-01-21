@@ -7,6 +7,7 @@ import { ListMaterialModule } from '../../components/list-material/list-material
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     MatListModule,
     StudentsModule,
+    SharedModule
   ],
   exports:[
     MainComponent,

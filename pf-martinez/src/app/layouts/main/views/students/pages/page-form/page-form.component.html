@@ -3,24 +3,32 @@
         <mat-form-field class="w-full">
          <mat-label>Nombre</mat-label>
          <input formControlName="firstName" matInput type="text" >
+         <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="error-container">
+            <div *ngIf="firstName?.errors?.['required']">El nombre es obligatorio.</div>
+            <div *ngIf="firstName?.errors?.['minlength']">El nombre debe tener al menos 2 caracteres.</div>
+            <div *ngIf="firstName?.errors?.['maxlength']">El nombre no debe tener más de 20 caracteres.</div>
+          </div>
         </mat-form-field>
-        <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="bg-red">
-           <div *ngIf="firstName?.errors?.['required']">El nombre es obligatorio.</div>
-           <div *ngIf="firstName?.errors?.['minlength']">El nombre debe tener al menos 2 caracteres.</div>
-           <div *ngIf="firstName?.errors?.['maxlength']">El nombre no debe tener más de 20 caracteres.</div>
-           <div *ngIf="firstName?.errors?.['pattern']">El nombre solo puede contener letras.</div>
-         </div>
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
             <mat-label>Apellido</mat-label>
             <input formControlName="lastName" matInput type="text" >
+            <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="error-container">
+                <div *ngIf="lastName?.errors?.['required']">El Apellido es obligatorio.</div>
+                <div *ngIf="lastName?.errors?.['minlength']">El Apellido debe tener al menos 2 caracteres.</div>
+                <div *ngIf="lastName?.errors?.['maxlength']">El Apellido no debe tener más de 20 caracteres.</div>
+              </div>
         </mat-form-field>
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
             <mat-label>Email</mat-label>
             <input formControlName="email" matInput type="text" >
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-container">
+                <div *ngIf="email?.errors?.['required']">El email es obligatorio.</div>
+                <div *ngIf="email?.errors?.['email']">Formato de email no valido</div>
+              </div>
         </mat-form-field>
     </div>
     <div class="col-6">
@@ -49,8 +57,11 @@
         <div class="total"> Total:  {{ amount | currency:'CLP' }} </div>
     </div>
     <div class="col-12 flex justify-content-end mb-1">
-        <button mat-raised-button color="primary">
+        <button *ngIf="!id" mat-raised-button color="primary">
              Guardar 
+        </button>
+        <button *ngIf="id" mat-raised-button color="primary">
+             Editar 
         </button>
     </div>
  </form>
