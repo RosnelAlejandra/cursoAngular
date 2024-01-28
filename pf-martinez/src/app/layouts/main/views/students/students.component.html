@@ -11,6 +11,7 @@
                     [displayedColumns]="displayedColumns"
                     (deleteStudentById)="deleteStudentById($event)"
                     (editStudentByID)="editStudentByID($event)"
+                    
                 ></app-page-table>
             </div>
         </mat-tab>
@@ -23,6 +24,8 @@
             <app-page-form class="mt-1 " 
                     (userSubmited)="onStudentSubmiter($event)" 
                     [studentDataEdit]="studentDataEdit"
+                    [courses]="courses"
+                    [careers]="careers"
                     ></app-page-form>
         </mat-tab>
     </mat-tab-group>

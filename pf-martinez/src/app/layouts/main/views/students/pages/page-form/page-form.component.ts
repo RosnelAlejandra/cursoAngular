@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { dataCareers, dataCourse } from '../../../courses/mocks/course.mock';
 import { CareerModel, CourseModel } from '../../../courses/models/course.model';
 import { StudentModel } from '../../models/studens.model';
 
@@ -25,8 +24,11 @@ export class PageFormComponent {
   @Input()
   studentDataEdit?: StudentModel;
 
-  courses: CourseModel[] = dataCourse;
-  careers: CareerModel[] = dataCareers;
+  @Input()
+  courses: CourseModel[] = [];
+
+  @Input()
+  careers: CareerModel[] = [];
 
   constructor(private fb: FormBuilder){
     this.userForm = this.fb.group({
@@ -48,6 +50,8 @@ export class PageFormComponent {
       career: this.fb.control([]),
       numberPay: this.fb.control(''),
     });
+
+
   }
 
   get firstName() {
