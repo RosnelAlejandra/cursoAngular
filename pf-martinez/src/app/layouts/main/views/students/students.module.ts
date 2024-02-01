@@ -22,15 +22,16 @@ import { SharedModule } from '../../../../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    FormsModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    ReactiveFormsModule,
     MatTabsModule,
     MatIconModule,
+    
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   exports:[StudentsComponent]

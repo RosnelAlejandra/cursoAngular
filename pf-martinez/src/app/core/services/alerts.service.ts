@@ -33,4 +33,12 @@ export class AlertsService {
       text: message,
     });
   }
+
+  showInfo(message?: string): void {
+    this.notification$.next({
+      icon: 'info',
+      title: '',
+      text: message,
+    });
+  }
 }

@@ -11,17 +11,16 @@ import es from '@angular/common/locales/es-CL'
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-registerLocaleData(es);
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    MainModule
+    MainModule,
   ],
   /* indicamos el idioma para el Pipe de Date */
   providers: [{
@@ -34,6 +33,7 @@ registerLocaleData(es);
       appearance: 'outline',
     },
   },
+  
 ],
   bootstrap: [AppComponent]
 })

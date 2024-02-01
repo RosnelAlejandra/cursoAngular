@@ -5,13 +5,14 @@ export interface CourseModel {
     typeDuration: string;
     description: string;
     price: number;
-    modality: string;
+    modality: Array<number>;
     idCareer: Array<number>;
     status: number;
     schedule:{
         start: string;
         end?: string;
-    }
+    },
+    type?: string;
 }
 
 export interface CareerModel {
@@ -19,4 +20,13 @@ export interface CareerModel {
     name: string;
     status: number;
     price: number;
+    durations: number;
+    description: string;
+    type?: string;
+}
+
+
+export interface ModalityModel {
+    id: number;
+    name: string;
 }

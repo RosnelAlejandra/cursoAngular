@@ -5,31 +5,26 @@ export const menuStudents = [
         icon: 'manage_accounts',
     },
     {
-        name: 'Mis Cursos',
+        name: 'Dashboard',
         updated: null,
-        icon: 'assignment',
-    },
-    {
-        name: 'Mis Clases',
-        updated: null,
-        icon: 'calendar_month',
+        icon: 'dashboard',
     },
 ]
 
 export const menuGeneral = [
     {
-        name: 'Dashboard',
+        name: 'Alumnos',
         updated: null,
-        icon: 'dashboard',
-    },
-    {
-        name: 'Profesores',
-        updated: null,
-        icon: 'group',
+        icon: 'person_search',
     },
     {
         name: 'Cursos',
         updated: null,
         icon: 'assignment',
+    },
+    {
+        name: 'Inscripciones',
+        updated: null,
+        icon: 'note_add',
     },
 ]

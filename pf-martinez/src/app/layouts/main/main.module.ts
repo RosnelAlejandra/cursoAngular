@@ -8,6 +8,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '../../shared/shared.module';
+import { CoursesModule } from './views/courses/courses.module';
+import { InscriptionsModule } from './views/inscriptions/inscriptions.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { SharedModule } from '../../shared/shared.module';
     MatIconModule,
     MatListModule,
     StudentsModule,
+    CoursesModule,
+    InscriptionsModule,
     SharedModule
   ],
   exports:[

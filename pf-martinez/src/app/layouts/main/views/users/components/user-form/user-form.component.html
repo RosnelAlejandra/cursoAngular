@@ -1,0 +1,44 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid">
+   <div class="col-6">
+    <mat-form-field class="w-full">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="firstName" matInput type="text" >
+    </mat-form-field>
+   </div>
+   <div class="col-6">
+       <mat-form-field class="w-full">
+           <mat-label>Apellido</mat-label>
+           <input formControlName="lastName" matInput type="text" >
+       </mat-form-field>
+   </div>
+   <div class="col-6">
+       <mat-form-field class="w-full">
+           <mat-label>Email</mat-label>
+           <input formControlName="email" matInput type="text" >
+       </mat-form-field>
+   </div>
+   <div class="col-6">
+       <mat-form-field class="w-full">
+           <mat-label>Rol</mat-label>
+   <!--    <mat-select [(ngModel)]="selectedValue" name="food">
+             @for (food of foods; track food) {
+               <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+             }
+           </mat-select> -->
+           <mat-select formControlName="role" >
+               <mat-option value="ADMIN" >ADMIN</mat-option>
+               <mat-option value="USER" >USER</mat-option>
+           </mat-select>
+         </mat-form-field>
+   </div>
+   <div class="col-12 flex justify-content-end mb-1">
+       <button mat-raised-button color="primary">
+            Guardar 
+       </button>
+   </div>
+</form>
+<pre>
+    {{
+        userForm.value | json
+    }}
+</pre>

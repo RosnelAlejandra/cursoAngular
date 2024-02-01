@@ -1,0 +1,54 @@
+<div class="flex justify-content-start flex-wrap">
+  <div appDirTitles class="flex align-items-center justify-content-center mb-1  ">
+      Mantenedor de Cursos y Carreras
+  </div>
+</div>
+<div appDirWrap>
+  <mat-accordion multi >
+      <mat-expansion-panel hideToggle expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Cursos 
+          </mat-panel-title>
+          <mat-panel-description>
+            Revisa todos nuestros cursos disponibles 
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="m-1 flex justify-content-end ">
+          <button color="primary" mat-raised-button (click)="openDialogCourse()">Agregar</button>
+        </div>
+        <app-table 
+          [dataSource]="dataSourceCourse" 
+          [displayedColumns]="displayedColumnsCourse"
+          (deleteCourseById)="deleteCourseById($event)"
+          (editCourseByID)="editCourseByID($event)"
+          >
+        </app-table>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Carreras
+          </mat-panel-title>
+          <mat-panel-description>
+            Revisa todos nuestrs carreras disponibles 
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="m-1 flex justify-content-end ">
+          <button color="primary" mat-raised-button (click)="openDialogCareear()">Agregar</button>
+        </div>
+        <app-table 
+        [dataSource]="dataSourceCareer" 
+        [displayedColumns]="displayedColumnsCourse"
+        >
+      </app-table>
+      </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="mt-5">
+  <c-callout color="primary">
+    Solo Usuarios Administradores puden agregar nuevos Cursos/Carreras
+  </c-callout>
+</div>

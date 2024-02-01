@@ -6,13 +6,14 @@ export const dataCourse = [
         typeDuration: 'weeks',
         description: '',
         price: 30000,
-        modality: 'online',
+        modality: [2],
         idCareer: [1001],
         status: 1,  /* el curso esta activo para seleccionar */
         schedule:{
             start: '2024-02-01T00:00:00',
             end: '',
-        }
+        },
+        type:'course',
     },
     {
         id: 5001,
@@ -21,13 +22,14 @@ export const dataCourse = [
         typeDuration: 'weeks',
         description: '',
         price: 50000,
-        modality: 'online',
+        modality: [2],
         idCareer: [1001],
         status: 1,
         schedule:{
             start: '2024-02-01T00:00:00',
             end: '',
-        } 
+        },
+        type:'course',
     },
     {
         id: 5002,
@@ -36,13 +38,14 @@ export const dataCourse = [
         typeDuration: 'weeks',
         description: '',
         price: 45000,
-        modality: 'online',
+        modality: [2],
         idCareer: [1001],
         status: 1,
         schedule:{
             start: '2024-03-01T00:00:00',
             end: '',
-        }
+        },
+        type:'course',
     },
     {
         id: 5003,
@@ -51,13 +54,14 @@ export const dataCourse = [
         typeDuration: 'weeks',
         description: '',
         price: 45000,
-        modality: 'online',
+        modality: [2],
         idCareer: [1001],
         status: 1,
         schedule:{
             start: '2024-02-01T00:00:00',
             end: '',
-        }
+        },
+        type:'course',
     },
     {
         id: 5004,
@@ -66,13 +70,14 @@ export const dataCourse = [
         typeDuration: 'weeks',
         description: '',
         price: 35000,
-        modality: 'online',
+        modality: [2],
         idCareer: [1002],
         status: 1,
         schedule:{
             start: '2024-05-01T00:00:00',
             end: '',
-        }
+        },
+        type:'course',
     },
     {
         id: 5005,
@@ -81,13 +86,14 @@ export const dataCourse = [
         typeDuration: 'weeks',
         description: '',
         price: 25000,
-        modality: 'presencial',
+        modality: [1],
         idCareer: [1003],
         status: 1,
         schedule:{
             start: '2024-04-01T00:00:00',
             end: '',
-        }
+        },
+        type:'course',
     },
 
 ];
@@ -97,18 +103,27 @@ export const dataCareers = [
         id: 1001,
         name: 'Arte Contemporaneo',
         status: 1,
-        price: 180000
+        durations: 9,
+        description: '',
+        price: 180000,
+        type:'career',
     },
     {
         id: 1002,
         name: 'Diseño & Moda',
         status: 1,
-        price: 86000
+        durations: 5,
+        description: '',
+        price: 86000,
+        type:'career',
     },
     {
         id: 1003,
         name: 'Musica',
         status: 1,
-        price: 80000
+        durations: 8,
+        description: '',
+        price: 80000,
+        type:'career',
     },
 ]
