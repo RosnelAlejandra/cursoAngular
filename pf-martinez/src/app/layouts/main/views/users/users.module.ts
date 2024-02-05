@@ -1,32 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { SharedModule } from '../../../../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
-import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
     UsersComponent,
+    UserDetailComponent,
     UserFormComponent
   ],
   imports: [
     CommonModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatIconModule,
-    ReactiveFormsModule
+    SharedModule,
+    RouterModule,
   ],
-  exports: [UsersComponent],
-  providers:[]
+  exports:[
+    UsersComponent
+  ]
 })
 export class UsersModule { }

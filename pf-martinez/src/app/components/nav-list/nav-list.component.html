@@ -1,0 +1,11 @@
+<div mat-subheader>{{nameTitles}}</div>
+<mat-nav-list>
+    <ng-container *ngFor="let folder of listArray">
+        <a mat-list-item [routerLink]="folder.path" 
+            routerLinkActive="active"  
+        >
+            <mat-icon matListItemIcon ng>{{ folder.icon }}</mat-icon>
+            <span mat-line>{{ folder.name }}</span>
+        </a>
+    </ng-container>
+</mat-nav-list>

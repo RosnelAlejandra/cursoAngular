@@ -72,16 +72,12 @@ export class StudentsComponent implements OnInit {
   onStudentSubmiter(e: StudentModel): void {
 
     console.log(`Student : edit ${this.edit} ${e.id} `)
-    this.loadingService.setIsLoading(true);
     if (this.edit) {
       this.studentService.editStudent({...e}).subscribe({
         next: (students) => {
           console.log(students)
           this.dataSource = [...students];
-        },
-        complete: () => {
-          this.loadingService.setIsLoading(false);
-        },
+        }
       })
       this.edit = false;
       this.studentDataEdit = {
@@ -100,10 +96,7 @@ export class StudentsComponent implements OnInit {
       this.studentService.createStudent({   ...e,  id: this.dataSource.length + 1}).subscribe({
         next: (students) => {
           this.dataSource = [...students];
-        },
-        complete: () => {
-          this.loadingService.setIsLoading(false);
-        },
+        }
       })
 
     }
@@ -113,15 +106,10 @@ export class StudentsComponent implements OnInit {
   }
 
   deleteStudentById(id: number) {
-    //this.dataSource = this.dataSource.filter((s:any) => s.id !== id);
-    this.loadingService.setIsLoading(true);
     this.studentService.deleteStudent(id).subscribe({
       next: (students) => {
         this.dataSource = [...students];
-      },
-      complete: () => {
-        this.loadingService.setIsLoading(false);
-      },
+      }
     })
   }
 
@@ -134,4 +122,7 @@ export class StudentsComponent implements OnInit {
     this.edit = true;
   }
 
+  viewStudentByID(view: number) {
+    console.log({view});
+  }
 }

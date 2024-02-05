@@ -49,4 +49,5 @@ export class TableComponent {
                         : this.alert.showInfo('En Contrucción') ;;
   }
 
+
 }

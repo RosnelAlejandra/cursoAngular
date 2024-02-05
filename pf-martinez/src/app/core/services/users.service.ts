@@ -51,7 +51,7 @@ export class UsersService {
         return of(USER_DB).pipe(delay(3000))
     }
 
-    getUserById(id: number | string): Observable<UsersModel | undefined> {
+      getUserById(id: number | string): Observable<UsersModel | undefined> {
         return of(USER_DB.find((user) => user.id == id)).pipe(delay(1000));
       }
     

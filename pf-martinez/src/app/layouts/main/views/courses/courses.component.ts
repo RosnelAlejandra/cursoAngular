@@ -16,7 +16,7 @@ import { FormCareerComponent } from './form-career/form-career.component';
 })
 export class CoursesComponent {
   panelOpenState = true;
-
+  viewDetail = false;
   displayedColumnsCourse: string[] = ['id', 'name', 'durations', 'description', 'price', 'action'];
   dataSourceCourse: CourseModel[] = [];
   dataSourceCareer: CareerModel[] = [];
@@ -94,5 +94,7 @@ export class CoursesComponent {
         }
       });
   }
+
+
 
 }

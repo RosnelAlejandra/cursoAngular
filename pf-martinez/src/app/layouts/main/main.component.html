@@ -1,19 +1,24 @@
 <mat-drawer-container class="menu-conteiner" autosize>
     <mat-drawer #drawer class="menu-drawer" mode="side">
-        <div class="logo">
-            <div class="logo-container">
-                <img src="../../../assets/images/logo.jpg" alt="Logo" class="logo-image">
+        <div class="p-fluid" style="height: 94vh;"> 
+            <div class="logo">
+                <div class="logo-container">
+                    <img src="../../../assets/images/logo.jpg" alt="Logo" class="logo-image">
+                </div>
+                <div class="text-container">
+                    <p class="text-4xl border-round mt-3 vertical-align-text-top ">Bellas Artes</p>
+                    <span class="text-sm font-italic vertical-align-super">Contigo Siempre</span>
+                </div>
             </div>
-            <div class="text-container">
-                <p class="text-4xl border-round mt-3 vertical-align-text-top ">Bellas Artes</p>
-                <span class="text-sm font-italic vertical-align-super">Contigo Siempre</span>
-            </div>
+            <mat-list>
+                <app-nav-list [listArray]="menu1"   [nameTitles]="'Rosnel Martinez'"></app-nav-list>
+                <mat-divider></mat-divider>
+                <app-nav-list [listArray]="menu2"   [nameTitles]="'General'"></app-nav-list>
+            </mat-list>
         </div>
-        <mat-list>
-            <app-list-material [listArray]="menu1" [nameTitles]="'Rosnel Martinez'"></app-list-material>
-            <mat-divider></mat-divider>
-            <app-list-material [listArray]="menu2"   [nameTitles]="'General'"></app-list-material>
-          </mat-list>
+        <div class="w-full " style="height: 5vh;">
+            <button class="w-full h-full" mat-raised-button color="primary" (click)="closeSesion()">Cerrar Sesión</button>
+        </div>
     </mat-drawer>
   
     <mat-toolbar color="primary">
@@ -22,13 +27,33 @@
             <mat-icon>menu</mat-icon>
         </button>
         <span class="ml-3">Universidad Bellas Artes</span>
-        <span class="example-spacer"></span>
+        <span class="toolbar-spacer"></span>
+        <c-avatar src="../../../assets/images/avatar.jpeg"></c-avatar>
     </mat-toolbar>
 
     <!-- Muestro el componente  -->
     <div class="p-3">
-        <!-- <app-students></app-students> -->
-        <app-courses></app-courses>
-       <!--  <app-inscriptions></app-inscriptions> -->
+       <router-outlet></router-outlet>
+       <c-carousel [dark]="true" [wrap]="false" *ngIf="currentRoute === '/'">
+        <c-carousel-indicators></c-carousel-indicators>
+        <c-carousel-inner>
+          <c-carousel-item *ngFor="let slide of slides; index as i;">
+            <img
+              [src]="slide.src"
+              alt="{{slide.title}}"
+              class="d-block w-100"
+              loading="lazy"
+              width="1000"
+              height="800"
+            />
+            <c-carousel-caption class="d-none d-md-block title">
+              <h3>{{slide.title}}</h3>
+              <p>{{slide.subtitle}}</p>
+            </c-carousel-caption>
+          </c-carousel-item>
+        </c-carousel-inner>
+        <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+        <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+      </c-carousel>
     </div>
 </mat-drawer-container>

@@ -1,12 +1,12 @@
 <div class="flex justify-content-start flex-wrap">
-  <div appDirTitles class="flex align-items-center justify-content-center mb-1  ">
-      Mantenedor de Usuarios
+    <div appDirTitles class="flex align-items-center justify-content-center mb-1  ">
+        Mantenedor de Usuarios
+    </div>
   </div>
-</div>
+  
+  <app-user-form (userSubmited)="onUserSubmiter($event)"></app-user-form>
 
-<app-user-form (userSubmited)="onUserSubmiter($event)"></app-user-form>
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
     <!-- Position Column matColumnDef: directiva del displayColumns-->
     <ng-container matColumnDef="id">
@@ -35,6 +35,9 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Accion </th>
       <td mat-cell *matCellDef="let element"> 
+        <button [routerLink]="element.id" color="accent" mat-icon-button>
+          <mat-icon>visibility</mat-icon>
+        </button>
         <button mat-icon-button color="warn" (click)="onDeleteUser(element)">
           <mat-icon>delete</mat-icon>
         </button>  

@@ -1,0 +1,29 @@
+<div class="flex justify-content-start flex-wrap">
+    <div appDirTitles class="flex align-items-center justify-content-center   ">
+       Detalle de Alumno
+    </div>
+  </div>
+<hr />
+<mat-card *ngIf="student">
+    <mat-card-header>
+        <mat-card-title>{{ student.firstName }} {{ student.lastName }}</mat-card-title>
+        <mat-card-subtitle>Email: {{ student.email }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Fecha de Inscripción: {{ student.dateIncription | date }}</p>
+        <p>Cursos Inscritos:</p>
+        <ul *ngIf="student.course.length">
+          <li *ngFor="let course of student.course">{{ course.name }}</li>
+        </ul>
+        <p *ngIf="student.course.length == 0" class="font-italic border-round border-1 surface-overlay p-4">Sin asignar</p>
+
+        <p>Carreras Inscritos:</p>
+        <ul *ngIf="student.career.length">
+          <li *ngFor="let career of student.career">{{ career.name }}</li>
+        </ul>
+        <p *ngIf="student.career.length == 0" class="font-italic border-round border-1 surface-overlay p-4">Sin asignar</p>
+
+        <p>Estado de Pago: {{ getPaymentStatusText(student.statusPay) }}</p>
+        <p>Número de Pago: {{ student.numberPay }}</p>
+      </mat-card-content>
+</mat-card>

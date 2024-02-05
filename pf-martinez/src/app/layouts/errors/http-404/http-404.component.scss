@@ -1,0 +1,30 @@
+.not-found-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .not-found-icon {
+    font-size: 100px;
+    color: #e74c3c; /* Puedes ajustar el color según tu preferencia */
+  }
+  
+  .not-found-title {
+    font-size: 36px;
+    margin-top: 10px;
+  }
+  
+  .not-found-text {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .not-found-link {
+    font-size: 16px;
+    margin-top: 20px;
+    color: #3498db; /* Puedes ajustar el color según tu preferencia */
+    text-decoration: none;
+  }
+  
+  .not-found-link:hover {
+    text-decoration: underline;
+  }

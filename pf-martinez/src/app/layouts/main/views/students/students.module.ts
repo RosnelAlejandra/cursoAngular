@@ -14,11 +14,15 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { SharedModule } from '../../../../shared/shared.module';
+import { PageDetailComponent } from './pages/page-detail/page-detail.component';
+import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     StudentsComponent,
     PageFormComponent,
-    PageTableComponent
+    PageTableComponent,
+    PageDetailComponent
   ],
   imports: [
     CommonModule,
@@ -29,10 +33,11 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatButtonModule,
     MatTabsModule,
     MatIconModule,
-    
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MatCardModule
   ],
   exports:[StudentsComponent]
 })

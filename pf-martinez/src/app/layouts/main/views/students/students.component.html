@@ -1,6 +1,6 @@
 <div class="flex justify-content-start flex-wrap">
     <div appDirTitles class="flex align-items-center justify-content-center mb-1  ">
-        Mantenedor de Inscripciones 
+        Mantenedor de Alumnos 
     </div>
   </div>
     <mat-tab-group #tabGroup animationDuration="0ms">
@@ -16,7 +16,7 @@
                     [displayedColumns]="displayedColumns"
                     (deleteStudentById)="deleteStudentById($event)"
                     (editStudentByID)="editStudentByID($event)"
-                    
+                    (viewStudentByID)="viewStudentByID($event)"
                 ></app-page-table>
             </div>
         </mat-tab>
@@ -36,3 +36,8 @@
     </mat-tab-group>
 
 
+    <div class="mt-5">
+        <c-callout color="warning">
+            En este mantenedor se podra agregar a nuevos alumnos con todos sus datos básicos y su primera inscripción
+        </c-callout>
+      </div>

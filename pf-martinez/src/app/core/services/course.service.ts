@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CourseModel, ModalityModel } from '../../layouts/main/views/courses/models/course.model';
-import { Observable, delay, finalize, of, tap } from 'rxjs';
+import { Observable, delay, filter, finalize, of, tap } from 'rxjs';
 import { dataCourse } from '../../layouts/main/views/courses/mocks/course.mock';
 import { AlertsService } from './alerts.service';
 import { LoadingService } from './loading.service';
@@ -29,7 +29,10 @@ export class CourseService {
 
   getCources(): Observable<CourseModel[]>{
     this.loadingService.setIsLoading(true);
-    return of(this.courses).pipe(delay(1000), finalize(() => this.loadingService.setIsLoading(false) ))
+    return of(this.courses).pipe(
+        delay(1000), 
+        finalize(() => this.loadingService.setIsLoading(false) )
+        )
   }
 
   create(course: CourseModel, count: number) {
@@ -39,14 +42,16 @@ export class CourseService {
   }
 
   delete(id: number) {
-    this.loadingService.setIsLoading(true);
-    this.courses = this.courses.filter((c) => c.id !== id);
-    return this.getCources().pipe(
-      tap(() =>
-        this.alerts.showSuccess('Realizado', 'Se elimino correctamente')
-      ),
-      finalize(() => this.loadingService.setIsLoading(false) )
-    );
+    if(confirm('¿Esta seguro de Eliminar este Curso?')){
+      this.loadingService.setIsLoading(true);
+      this.courses = this.courses.filter((c) => c.id !== id);
+      return this.getCources().pipe(
+        tap(() =>
+          this.alerts.showSuccess('Realizado', 'Se elimino correctamente')
+        )
+      );
+    }
+    return this.getCources();
   }
 
   edit(course: CourseModel) {
@@ -61,6 +66,16 @@ export class CourseService {
       tap(() =>
         this.alerts.showSuccess('Cambios Realizados', 'Se edito correctamente los datos del curso')
       ),
+      finalize(() => this.loadingService.setIsLoading(false) )
+    );
+  }
+
+  getCourseById(course: number): Observable<CourseModel | undefined> {
+    this.loadingService.setIsLoading(true);
+    const data = this.courses.find((c) => c.id == course);
+    console.log({data});
+    return of(data).pipe(
+      delay(1000),
       finalize(() => this.loadingService.setIsLoading(false) )
     );
   }

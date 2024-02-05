@@ -14,7 +14,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CourseDataPipe } from './pipes/course-data.pipe';
+import { CareerDataPipe } from './pipes/career-data.pipe';
+import { UserDataPipe } from './pipes/user-data.pipe';
+import { CalloutModule } from '@coreui/angular';
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +30,9 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     DirWrapDirective,
     
     StudentDataPipe,
+    CourseDataPipe,
+    CareerDataPipe,
+    UserDataPipe,
   ],
   imports: [
     CommonModule,
@@ -37,11 +48,13 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatAutocompleteModule,
+    MatCardModule,
 
     FormsModule,
     ReactiveFormsModule,
     
-
+    CalloutModule,
   ],
   exports: [
     DirTitlesDirective,
@@ -49,6 +62,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
     StudentDataPipe,
 
+    MatStepperModule,
     MatExpansionModule,
     MatIconModule,
     MatTableModule,
@@ -60,9 +74,12 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatAutocompleteModule,
 
     FormsModule,
     ReactiveFormsModule,
+
+    CalloutModule
   ],
   providers: [
 

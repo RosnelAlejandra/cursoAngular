@@ -1,0 +1,67 @@
+<div class="flex justify-content-start flex-wrap">
+    <div appDirTitles class="flex align-items-center justify-content-center   ">
+       Detalle de Curso
+    </div>
+  </div>
+<hr />
+<mat-card *ngIf="course">
+    <mat-card-header>
+      <mat-card-title>{{ course.name }}</mat-card-title>
+      <mat-card-subtitle>Duración: {{ course.durations }} {{ course.typeDuration }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Curso: {{ course.description }}</p>
+      <p>Precio: ${{ course.price }}</p>
+      <p>Modalidad: {{ getModalityName(course.modality[0]) }}</p>
+      <p>Inicio: {{ course.schedule.start | date }}</p>
+      <p>Estado: {{ getStatusText(course.status) }}</p>
+    </mat-card-content>
+</mat-card>
+
+  <div appDirTitles *ngIf="course" class="flex align-items-center justify-content-center m-5  ">
+    Estuadiantes Inscritos: 
+  </div>
+  <table mat-table *ngIf="course" [dataSource]="dataSource" class="mat-elevation-z8 m-1 p-3">
+
+    <ng-container matColumnDef="id">
+       <th mat-header-cell *matHeaderCellDef> id </th>
+       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+     </ng-container>
+   
+     <ng-container matColumnDef="fullName">
+       <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+       <td mat-cell *matCellDef="let element"> {{ element | studentData : 1 }} </td>
+     </ng-container>
+   
+     <ng-container matColumnDef="email">
+       <th mat-header-cell *matHeaderCellDef> Correo </th>
+       <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+     </ng-container>
+
+<!--      <ng-container matColumnDef="action">
+       <th mat-header-cell *matHeaderCellDef> Acciones </th>
+       <td mat-cell *matCellDef="let element"> 
+         <div class="grid">
+           <div class="example-button-container">
+             <button mat-icon-button color="accent" (click)="deleteStudent(element.id)">
+               <mat-icon>person_remove</mat-icon>
+             </button>
+           </div>
+         </div>
+       </td>
+     </ng-container> -->
+   
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+<div class="mt-5" *ngIf="!course && !loading">
+    <c-alert color="danger" class="d-flex align-items-center">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+            <use xlink:href="#exclamation-triangle-fill" />
+        </svg>
+        No se encontró curso.
+     </c-alert>
+  </div>
+  

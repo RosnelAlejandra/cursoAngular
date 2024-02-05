@@ -1,0 +1,50 @@
+export const inscriptionArrayInitial = [
+    {
+        id: 1,
+        studentId: 1,
+        courseId: 5000,
+        firstName: 'Carla de la Cruz',
+        lastName: 'Añiz',
+        email: 'canis@mail.com',
+      },
+      {
+        id: 2,
+        studentId: 1,
+        courseId: 5001,
+        firstName: 'Carla de la Cruz',
+        lastName: 'Añiz',
+        email: 'canis@mail.com',
+      },
+      {
+        id: 3,
+        studentId: 3,
+        courseId: 5000,
+        firstName: 'Mario',
+        lastName: 'Añiz',
+        email: 'manis@mail.com',
+      },
+      {
+        id: 4,
+        studentId: 4,
+        courseId: 5003,
+        firstName: 'Juan',
+        lastName: 'Valdez',
+        email: 'jvaldez@mail.com',
+      },
+      {
+        id: 5,
+        studentId: 4,
+        courseId: 5002,
+        firstName: 'Juan',
+        lastName: 'Valdez',
+        email: 'jvaldez@mail.com',
+      },
+      {
+        id: 6,
+        studentId: 5,
+        courseId: 5002,
+        firstName: 'Lucia',
+        lastName: 'Zapata',
+        email: 'lzapata@mail.com',
+      }
+]
