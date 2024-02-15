@@ -7,7 +7,7 @@ export const dataCourse = [
         description: '',
         price: 30000,
         modality: [2],
-        idCareer: [1001],
+        career: [1001],
         status: 1,  /* el curso esta activo para seleccionar */
         schedule:{
             start: '2024-02-01T00:00:00',
@@ -23,7 +23,7 @@ export const dataCourse = [
         description: '',
         price: 50000,
         modality: [2],
-        idCareer: [1001],
+        career: [1001],
         status: 1,
         schedule:{
             start: '2024-02-01T00:00:00',
@@ -39,7 +39,7 @@ export const dataCourse = [
         description: '',
         price: 45000,
         modality: [2],
-        idCareer: [1001],
+        career: [1001],
         status: 1,
         schedule:{
             start: '2024-03-01T00:00:00',
@@ -55,7 +55,7 @@ export const dataCourse = [
         description: '',
         price: 45000,
         modality: [2],
-        idCareer: [1001],
+        career: [1001],
         status: 1,
         schedule:{
             start: '2024-02-01T00:00:00',
@@ -71,7 +71,7 @@ export const dataCourse = [
         description: '',
         price: 35000,
         modality: [2],
-        idCareer: [1002],
+        career: [1002],
         status: 1,
         schedule:{
             start: '2024-05-01T00:00:00',
@@ -87,7 +87,7 @@ export const dataCourse = [
         description: '',
         price: 25000,
         modality: [1],
-        idCareer: [1003],
+        career: [1003],
         status: 1,
         schedule:{
             start: '2024-04-01T00:00:00',

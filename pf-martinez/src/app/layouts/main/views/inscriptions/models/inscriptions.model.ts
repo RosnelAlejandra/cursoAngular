@@ -1,5 +1,5 @@
 export interface InscriptionModel{
-    id: number;
+    id: string;
     courseId: number;
     studentId: number;
     firstName: string;

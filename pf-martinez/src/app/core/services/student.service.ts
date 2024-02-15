@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { studentsArrayInitial } from '../../layouts/main/views/students/mocks/data.mocks';
-import { Observable, delay, finalize, map, of, tap } from 'rxjs';
+import { Observable, catchError, delay, finalize, map, mergeMap, of, tap } from 'rxjs';
 import { StudentModel } from '../../layouts/main/views/students/models/studens.model';
 import { AlertsService } from './alerts.service';
 import { LoadingService } from './loading.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,52 +12,64 @@ import { LoadingService } from './loading.service';
 export class StudentService {
 
   constructor(private alerts: AlertsService,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private httpClient: HttpClient) { }
 
   studentsArray = studentsArrayInitial.map( (s: any) => { 
     return { ...s, dateIncription: new Date(s.dateIncription)}
   }) 
 
+  apiUrl= 'http://localhost:3000/students';
+
   getStudent(): Observable<StudentModel[]>{
-    return of(this.studentsArray).pipe(
+  console.log("getStudent");
+    return this.httpClient.get<StudentModel[]>(this.apiUrl)
+          .pipe(
             map( (student) => student.map( (s: any) => { 
               return { ...s, dateIncription: new Date(s.dateIncription)}
             }) ),
             delay(1000), 
-            finalize(() => this.loadingService.setIsLoading(false) )
+            finalize(() => this.loadingService.setIsLoading(false) ),
+            catchError(() => {
+              this.loadingService.setIsLoading(false)
+              console.error('Error')
+              this.alerts.showError("Error al cargar Data")
+              return of([]);
+            })
           )
   }
 
   createStudent(student: StudentModel) {
     this.loadingService.setIsLoading(true);
-    this.studentsArray.push(student);
-    return this.getStudent();
+    return this.httpClient.post<StudentModel>(`${this.apiUrl}`,{
+      ...student, id: student.id.toString(),
+    })
+    .pipe(
+      delay(1000), 
+      mergeMap(() => this.getStudent()),
+      finalize(() => this.loadingService.setIsLoading(false))
+    )
   }
 
   deleteStudent(id: number) {
     if(confirm('¿Esta seguro de Eliminar el Alumno?')){
       this.loadingService.setIsLoading(true);
-      this.studentsArray = this.studentsArray.filter((user) => user.id !== id);
-      return this.getStudent().pipe(
-        tap(() =>
-          this.alerts.showSuccess('Realizado', 'Se elimino correctamente')
-        )
-      );
+      return this.httpClient.delete<StudentModel>(`${this.apiUrl}/${id}`)
+      .pipe(
+        delay(1000), 
+        mergeMap(() => this.getStudent()),
+        finalize(() => this.loadingService.setIsLoading(false))
+      )
     }
     return this.getStudent();
   }
 
   editStudent(student: StudentModel) {
     this.loadingService.setIsLoading(true);
-    this.studentsArray = this.studentsArray.map((data: any) => {
-      if(data.id === student.id){
-        return { ...student}
-      }
-      return data;
-    });
-    return this.getStudent().pipe(
-      tap(() =>
-        this.alerts.showSuccess('Cambios Realizados', 'Se edito correctamente los datos del estudiente')
+    return this.httpClient.put(`${this.apiUrl}/${student.id}`, student).pipe(
+      mergeMap(() => this.getStudent()),
+      tap(() =>this.alerts.showSuccess('Cambios Realizados', 'Se editó correctamente.')),
+      finalize(() => this.loadingService.setIsLoading(false),
       )
     );
   }
@@ -64,11 +77,14 @@ export class StudentService {
 
   getStudentById(studenId: number) {
     this.loadingService.setIsLoading(true);
-    const data = this.studentsArray.find((c) => c.id == studenId);
-    return of(data).pipe(
-      delay(1000),
-      finalize(() => this.loadingService.setIsLoading(false) )
-    );
+    return this.httpClient.get<StudentModel>(`${this.apiUrl}/${studenId}`)
+        .pipe(delay(1000), finalize(() => this.loadingService.setIsLoading(false)),
+        catchError(() => {
+          this.loadingService.setIsLoading(false)
+          console.error('Error')
+          this.alerts.showError("Error al cargar Data de Alumno")
+          return of();
+        }))
   }
 
 }

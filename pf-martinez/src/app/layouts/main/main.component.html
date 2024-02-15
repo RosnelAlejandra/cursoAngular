@@ -28,6 +28,7 @@
         </button>
         <span class="ml-3">Universidad Bellas Artes</span>
         <span class="toolbar-spacer"></span>
+        <span class="mr-3"> {{ user?.firstName ? user?.firstName + " " + user?.lastName : 'Usuario no encontrado' }} </span>
         <c-avatar src="../../../assets/images/avatar.jpeg"></c-avatar>
     </mat-toolbar>
 

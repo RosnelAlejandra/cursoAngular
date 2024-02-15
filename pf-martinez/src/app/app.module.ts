@@ -8,10 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { LoginModule } from './layouts/auth/login/login.module';
-import { RouterModule } from '@angular/router';
-import { ErrorsModule } from './layouts/errors/errors.module';
 
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,10 +21,9 @@ import { ErrorsModule } from './layouts/errors/errors.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-/*     MainModule, */
-    LoginModule,
     RouterModule,
-    ErrorsModule,
+    /* para el json-serve */
+    HttpClientModule
   ],
   /* indicamos el idioma para el Pipe de Date */
   providers: [

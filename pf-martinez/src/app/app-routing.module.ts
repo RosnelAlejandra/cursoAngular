@@ -1,33 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './layouts/main/main.component';
-import { LoginComponent } from './layouts/auth/login/login.component';
-import { Http404Component } from './layouts/errors/http-404/http-404.component';
-import { Http400Component } from './layouts/errors/http-400/http-400.component';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path:'',
+    canActivate:[authGuard],
     component: MainComponent,
     loadChildren: () => import('./layouts/main/main.module').then(
       (m) => m.MainModule
     )
   },
   {
-    path: 'auth/login',
-    component: LoginComponent
+    path:'auth',
+    loadChildren: () => import('./layouts/auth/auth.module').then(
+      (m) => m.AuthModule
+    )
   },
   {
-    path: '404',
-    component: Http404Component
-  },
-  {
-    path: '400',
-    component: Http400Component
+    path:'errors',
+    loadChildren: () => import('./layouts/errors/errors.module').then(
+      (m) => m.ErrorsModule
+    )
   },
   {
     path:'**',
-    redirectTo: '/404'  /* se coloca el / para ir fuera del path padre */
+    redirectTo: '/errors/404'  /* se coloca el / para ir fuera del path padre */
   },
 ];
 

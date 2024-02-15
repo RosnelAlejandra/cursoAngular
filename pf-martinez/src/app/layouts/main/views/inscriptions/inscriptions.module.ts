@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../../../shared/shared.module';
+import { InscriptionsRoutingModule } from './inscriptions-routing.module';
 
 
 @NgModule({
@@ -22,8 +23,8 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatStepperModule,
     MatButtonModule,
     AsyncPipe,
-    SharedModule
-  ],
-  exports: [InscriptionsComponent]
+    SharedModule,
+    InscriptionsRoutingModule
+  ]
 })
 export class InscriptionsModule { }

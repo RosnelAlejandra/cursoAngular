@@ -5,6 +5,8 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { UsersRoutingModule } from './users-routing.module';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -18,9 +20,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     SharedModule,
     RouterModule,
-  ],
-  exports:[
-    UsersComponent
+    MatCardModule,
+    UsersRoutingModule
   ]
 })
 export class UsersModule { }

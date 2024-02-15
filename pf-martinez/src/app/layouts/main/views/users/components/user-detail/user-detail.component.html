@@ -1,1 +1,15 @@
-detail user 
+<div class="flex justify-content-start flex-wrap">
+    <div appDirTitles class="flex align-items-center justify-content-center   ">
+       Detalle de Usuario
+    </div>
+  </div>
+<hr />
+<mat-card *ngIf="user">
+    <mat-card-header>
+        <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+        <mat-card-subtitle>Email: {{ user.email }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Rol: {{ user.role }}</p>
+      </mat-card-content>
+</mat-card>

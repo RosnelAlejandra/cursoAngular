@@ -6,7 +6,7 @@ export interface CourseModel {
     description: string;
     price: number;
     modality: Array<number>;
-    idCareer: Array<number>;
+    career: Array<number>;
     status: number;
     schedule:{
         start: string;

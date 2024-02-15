@@ -3,27 +3,38 @@
      <mat-form-field class="w-full">
          <mat-label>Nombre</mat-label>
          <input formControlName="firstName" matInput type="text" >
+         <mat-error>{{ userForm.get("firstName")?.errors | errorsValidation }}</mat-error>
      </mat-form-field>
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
             <mat-label>Apellido</mat-label>
             <input formControlName="lastName" matInput type="text" >
+            <mat-error>{{ userForm.get("lastName")?.errors | errorsValidation }}</mat-error>
         </mat-form-field>
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
             <mat-label>Email</mat-label>
             <input formControlName="email" matInput type="text" >
+            <mat-error>{{ userForm.get("email")?.errors | errorsValidation }}</mat-error>
         </mat-form-field>
     </div>
     <div class="col-6">
+        <mat-form-field class="w-full">
+            <mat-label>Contraseña</mat-label>
+            <input formControlName="password" matInput type="text" >
+            <mat-error>{{ userForm.get("password")?.errors | errorsValidation }}</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-12">
         <mat-form-field class="w-full">
             <mat-label>Rol</mat-label>
             <mat-select formControlName="role" >
                 <mat-option value="ADMIN" >ADMIN</mat-option>
                 <mat-option value="USER" >USER</mat-option>
             </mat-select>
+            <mat-error>{{ userForm.get("role")?.errors | errorsValidation }}</mat-error>
           </mat-form-field>
     </div>
     <div class="col-12 flex justify-content-end mb-1">
@@ -32,9 +43,4 @@
         </button>
     </div>
  </form>
- <pre>
-     {{
-         userForm.value | json
-     }}
- </pre>
  

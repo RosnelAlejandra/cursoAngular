@@ -26,6 +26,7 @@ export class InscriptionsComponent {
   students: StudentModel[] = [];
   selectedCourse = 0;
   nameSelectedCourse = '';
+  totalInscriptions = 0;
 
   ctrlCourse = new FormControl('', Validators.required);
   filteredCourse: Observable<CourseModel[]>;
@@ -62,10 +63,12 @@ export class InscriptionsComponent {
       forkJoin([
         this.courseService.getCources(),
         this.studentService.getStudent(),
+        this.inscriptionService.getInscription(),
       ]).subscribe({
         next: (value) => {
           this.courses = value[0]; 
           this.students = value[1];
+          this.totalInscriptions = value[2].length;
         },
         complete: () => {
           this.loadingService.setIsLoading(false);
@@ -102,9 +105,9 @@ export class InscriptionsComponent {
       }
     }
 
-    deleteStudent(id: number) {
+    deleteStudent(i: InscriptionModel) {
 
-      this.inscriptionService.deleteInscription(id).subscribe({
+      this.inscriptionService.deleteInscription(i.id, i.courseId).subscribe({
         next: (i) => {
           this.dataSource = [...i];
         }
@@ -126,15 +129,16 @@ export class InscriptionsComponent {
       }
 
       if(selectedStudent.length == 1 ){
+        this.totalInscriptions = this.totalInscriptions + 1
         const dataCourse = {
-          id: 0,
+          id: this.totalInscriptions.toString(),
           studentId: selectedStudent[0].id,
           courseId: this.selectedCourse,
           firstName: selectedStudent[0].firstName,
           lastName: selectedStudent[0].lastName,
           email: selectedStudent[0].email,
         }
-  
+        console.log("Nueva Inscripción: ",{dataCourse})
         this.inscriptionService.createInscription(dataCourse).subscribe({
           next: (inscrip) => {
             console.log(inscrip)

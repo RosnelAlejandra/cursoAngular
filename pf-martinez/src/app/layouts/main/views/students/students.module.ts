@@ -17,6 +17,7 @@ import { SharedModule } from '../../../../shared/shared.module';
 import { PageDetailComponent } from './pages/page-detail/page-detail.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { StudentsRoutingModule } from './students-routing.module';
 @NgModule({
   declarations: [
     StudentsComponent,
@@ -37,8 +38,9 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    MatCardModule
-  ],
-  exports:[StudentsComponent]
+    MatCardModule,
+
+    StudentsRoutingModule
+  ]
 })
 export class StudentsModule { }

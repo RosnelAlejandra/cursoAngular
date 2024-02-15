@@ -1,0 +1,372 @@
+{
+  "users": [
+    {
+      "firstName": "Mario",
+      "lastName": "Perez aniz",
+      "email": "mar@user.com",
+      "role": "USER",
+      "password": "mar@user.com",
+      "id": "1"
+    },
+    {
+      "firstName": "Rosario",
+      "lastName": "Andes",
+      "email": "ros@user.com",
+      "role": "ADMIN",
+      "password": "ros@user.com",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "firstName": "Pedro",
+      "lastName": "Ann",
+      "email": "per@user.com",
+      "role": "ADMIN",
+      "password": "per@user.com"
+    },
+    {
+      "id": "0",
+      "studentId": "2",
+      "courseId": "5000",
+      "firstName": "Rosmery",
+      "lastName": "Zapata",
+      "email": "rzapata@mail.com"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "firstName": "Carla de la Cruz",
+      "lastName": "Añiz",
+      "email": "canis@mail.com",
+      "dateIncription": "2023-12-01T00:00:00",
+      "course": [
+        {
+          "id": "5000",
+          "name": "Pintura"
+        },
+        {
+          "id": "5001",
+          "name": "Dibujo"
+        }
+      ],
+      "career": [],
+      "statusPay": 1,
+      "numberPay": ""
+    },
+    {
+      "id": "2",
+      "firstName": "Rosmery",
+      "lastName": "Zapata",
+      "email": "rzapata@mail.com",
+      "dateIncription": "2023-11-01T00:00:00",
+      "course": [],
+      "career": [
+        {
+          "id": "1003",
+          "name": "Musica"
+        }
+      ],
+      "statusPay": 2,
+      "numberPay": "T5467854388965"
+    },
+    {
+      "id": "3",
+      "firstName": "Mario",
+      "lastName": "Añiz",
+      "email": "manis@mail.com",
+      "dateIncription": "2023-12-01T00:00:00",
+      "course": [
+        {
+          "id": "5000",
+          "name": "Pintura"
+        }
+      ],
+      "career": [],
+      "statusPay": 1,
+      "numberPay": ""
+    },
+    {
+      "id": "4",
+      "firstName": "Juan",
+      "lastName": "Valdez",
+      "email": "jvaldez@mail.com",
+      "dateIncription": "2023-12-01T00:00:00",
+      "course": [
+        {
+          "id": "5003",
+          "name": "Escultura"
+        },
+        {
+          "id": "5002",
+          "name": "Imprenta"
+        }
+      ],
+      "career": [],
+      "statusPay": 1,
+      "numberPay": ""
+    },
+    {
+      "id": "5",
+      "firstName": "Lucia",
+      "lastName": "Zapata",
+      "email": "lzapata@mail.com",
+      "dateIncription": "2023-11-01T00:00:00",
+      "course": [
+        {
+          "id": "5002",
+          "name": "Imprenta"
+        }
+      ],
+      "career": [],
+      "statusPay": 2,
+      "numberPay": "747426729373"
+    },
+    {
+      "firstName": "Pedro D",
+      "lastName": "Alvarez",
+      "email": "pedro@user.com",
+      "course": [
+        {
+          "id": "5005",
+          "name": "Piano nivel 1 "
+        }
+      ],
+      "career": [
+        {
+          "id": "1003",
+          "name": "Musica "
+        }
+      ],
+      "numberPay": "T436FTGR",
+      "id": "6",
+      "statusPay": 2,
+      "dateIncription": "2024-02-14T23:42:12.165Z",
+      "courseName": "Piano nivel 1 ",
+      "careerName": "Musica "
+    }
+  ],
+  "inscriptions": [
+    {
+      "id": "1",
+      "studentId": 1,
+      "courseId": 5000,
+      "firstName": "Carla de la Cruz",
+      "lastName": "Añiz",
+      "email": "canis@mail.com"
+    },
+    {
+      "id": "2",
+      "studentId": 1,
+      "courseId": 5001,
+      "firstName": "Carla de la Cruz",
+      "lastName": "Añiz",
+      "email": "canis@mail.com"
+    },
+    {
+      "id": "3",
+      "studentId": 4,
+      "courseId": 5003,
+      "firstName": "Juan",
+      "lastName": "Valdez",
+      "email": "jvaldez@mail.com"
+    },
+    {
+      "id": "4",
+      "studentId": 4,
+      "courseId": 5002,
+      "firstName": "Juan",
+      "lastName": "Valdez",
+      "email": "jvaldez@mail.com"
+    },
+    {
+      "id": "5",
+      "studentId": "2",
+      "courseId": "5005",
+      "firstName": "Rosmery",
+      "lastName": "Zapata",
+      "email": "rzapata@mail.com"
+    },
+    {
+      "id": "6",
+      "studentId": "4",
+      "courseId": "5000",
+      "firstName": "Juan",
+      "lastName": "Valdez",
+      "email": "jvaldez@mail.com"
+    },
+    {
+      "id": "8",
+      "studentId": "3",
+      "courseId": "5000",
+      "firstName": "Mario",
+      "lastName": "Añiz",
+      "email": "manis@mail.com"
+    }
+  ],
+  "courses": [
+    {
+      "name": "Pintura ",
+      "durations": 3,
+      "description": " Pintura Blanco y Negro",
+      "price": 30000,
+      "modality": [
+        "2"
+      ],
+      "career": [
+        "1001"
+      ],
+      "start": "2024-02-22T03:00:00.000Z",
+      "typeDuration": "weeks",
+      "type": "course",
+      "id": "5000",
+      "schedule": {
+        "start": "2024-02-22T03:00:00.000Z",
+        "end": "2024-03-14T03:00:00.000Z"
+      },
+      "status": 1
+    },
+    {
+      "id": "5001",
+      "name": "Dibujo ",
+      "durations": 5,
+      "typeDuration": "weeks ",
+      "description": " ",
+      "price": 50000,
+      "modality": [
+        "2"
+      ],
+      "career": [
+        "1001"
+      ],
+      "status": 1,
+      "schedule": {
+        "start": "2024-02-01T00:00:00",
+        "end": " "
+      },
+      "type": "course"
+    },
+    {
+      "id": "5002",
+      "name": "Imprenta ",
+      "durations": 4,
+      "typeDuration": "weeks ",
+      "description": " ",
+      "price": 45000,
+      "modality": [
+        "2"
+      ],
+      "career": [
+        "1001"
+      ],
+      "status": 1,
+      "schedule": {
+        "start": "2024-03-01T00:00:00",
+        "end": ""
+      },
+      "type": "course"
+    },
+    {
+      "id": "5003",
+      "name": "Escultura ",
+      "durations": 4,
+      "typeDuration": "weeks ",
+      "description": " ",
+      "price": 45000,
+      "modality": [
+        "2"
+      ],
+      "career": [
+        "1001"
+      ],
+      "status": 1,
+      "schedule": {
+        "start": "2024-02-01T00:00:00",
+        "end": ""
+      },
+      "type": "course"
+    },
+    {
+      "name": "Historia de la Moda",
+      "durations": 5,
+      "description": " 1990",
+      "price": 35000,
+      "modality": [
+        "1",
+        "2"
+      ],
+      "career": [
+        "1002"
+      ],
+      "start": "2024-05-01T00:00:00",
+      "typeDuration": "weeks",
+      "type": "course",
+      "id": "5004",
+      "schedule": {
+        "start": "2024-05-01T00:00:00",
+        "end": "2024-02-14T22:15:46.646Z"
+      },
+      "status": 1
+    },
+    {
+      "name": "Piano nivel 1 ",
+      "durations": 5,
+      "description": " Piano nivel 1 ",
+      "price": 25000,
+      "modality": [
+        "1"
+      ],
+      "career": [
+        "1001"
+      ],
+      "start": "2024-02-21T03:00:00.000Z",
+      "typeDuration": "weeks",
+      "type": "course",
+      "id": "5005",
+      "schedule": {
+        "start": "2024-02-21T03:00:00.000Z",
+        "end": "2024-03-27T03:00:00.000Z"
+      },
+      "status": 1
+    }
+  ],
+  "careers": [
+    {
+      "id": "1001",
+      "name": "Arte Contemporaneo ",
+      "status": 1,
+      "durations": 9,
+      "description": " ",
+      "price": 180000,
+      "type": "career"
+    },
+    {
+      "id": "1002",
+      "name": "Diseño & Moda ",
+      "status": 1,
+      "durations": 5,
+      "description": " ",
+      "price": 86000,
+      "type": "career"
+    },
+    {
+      "id": "1003",
+      "name": "Musica ",
+      "status": 1,
+      "durations": 8,
+      "description": " ",
+      "price": 80000,
+      "type": "career"
+    }
+  ],
+  "modality": [
+    {
+      "id": "1",
+      "name": "Presencial"
+    },
+    {
+      "id": "2",
+      "name": "Online"
+    }
+  ]
+}

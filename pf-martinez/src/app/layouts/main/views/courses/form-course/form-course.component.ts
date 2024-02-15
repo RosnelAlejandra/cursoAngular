@@ -17,7 +17,10 @@ export class FormCourseComponent {
   constructor(private fb: FormBuilder,
     /* referencia para el crear */
       private dialogRef: MatDialogRef<FormCourseComponent>,
-      @Inject(MAT_DIALOG_DATA) private data?: { edit?:CourseModel, careers:CareerModel[], modalities: ModalityModel[]  },
+      @Inject(MAT_DIALOG_DATA) private data?: { 
+        edit?:CourseModel, 
+        careers:CareerModel[], 
+        modalities: ModalityModel[]  },
     ){
 
     this.careersData = data?.careers ?? [];
@@ -37,11 +40,12 @@ export class FormCourseComponent {
       start: this.fb.control('',Validators.required),
     });
 
+    console.log("Data edit ",this.data?.edit)
     if(this.data?.edit){
       const edit = {
         ...this.data.edit,
         start: this.data.edit.schedule.start,
-        career: [ ...this.data.edit.idCareer],
+        career: this.data.edit?.career,
       }
 
       console.log("Editando", edit)
@@ -91,14 +95,14 @@ export class FormCourseComponent {
       typeDuration: "weeks",
       type: "course",
       id: this.id,
-      modality: this.dataForm.value.modality[0],
+      modality: this.dataForm.value.modality,
       schedule: {
         start: this.dataForm.value.start,
         end
       },
       status: 1
     };
-    console.log("Modificamos Formulario", formValues);
+   // console.log("Modificamos Formulario", formValues);
 
     if(this.dataForm.invalid) {  //no se envia si hay errores 
       this.dataForm.markAllAsTouched(); 

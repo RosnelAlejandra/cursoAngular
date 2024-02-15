@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../../../../../core/services/users.service';
 import { LoadingService } from '../../../../../../core/services/loading.service';
+import { UsersModel } from '../../models/models';
 
 @Component({
   selector: 'app-user-detail',
@@ -10,19 +11,16 @@ import { LoadingService } from '../../../../../../core/services/loading.service'
 })
 export class UserDetailComponent {
 
+  user?: UsersModel;
   constructor(
     private route: ActivatedRoute,
-    private usersService: UsersService,
-    private loadingService: LoadingService
+    private usersService: UsersService
   ) {
-    this.loadingService.setIsLoading(true);
     this.usersService.getUserById(this.route.snapshot.params['id']).subscribe({
       next: (findedUser) => {
         console.log(findedUser);
-      },
-      complete: () => {
-        this.loadingService.setIsLoading(false);
-      },
+        this.user = findedUser;
+      }
     });
   }
 }

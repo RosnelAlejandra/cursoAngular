@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="login-box">
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" >
+            <mat-error>{{ loginForm.get("email")?.errors | errorsValidation }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password"
+                [type]="togglePasswordVisibility ? 'text' : 'password'" >
+            <mat-error>{{ loginForm.get("password")?.errors | errorsValidation  }}</mat-error>
+            <button mat-icon-button matSuffix (click)="toggleVisibility()">
+              <mat-icon>{{ togglePasswordVisibility ? 'visibility' : 'visibility_off' }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="full-width" >Ingresar</button>
+        </form>
+    </div>
+  </div>

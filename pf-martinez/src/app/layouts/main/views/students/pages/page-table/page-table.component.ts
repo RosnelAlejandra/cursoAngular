@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { StudentModel } from '../../models/studens.model';
+import { AuthService } from '../../../../../../core/services/auth.service';
+import { UsersModel } from '../../../users/models/models';
 
 
 @Component({
@@ -23,6 +25,16 @@ export class PageTableComponent {
 
   @Output()
   viewStudentByID = new EventEmitter();
+
+  user: UsersModel | null = null;
+
+  constructor(private authService: AuthService){
+        this.authService.getUserLogged().subscribe({
+          next: (u) => {
+            this.user = u;
+          }
+        })
+  }
 
   deleteStudent(id: number) {
     console.log('deleteStudent', id);

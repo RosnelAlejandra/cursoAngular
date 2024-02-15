@@ -7,7 +7,6 @@ import { CareerModel, CourseModel, ModalityModel } from './models/course.model';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FormCourseComponent } from './form-course/form-course.component';
-import { FormCareerComponent } from './form-career/form-career.component';
 
 @Component({
   selector: 'app-courses',
@@ -46,15 +45,6 @@ export class CoursesComponent {
     });
   }
 
-  /* Formulario de Carraras */
-  openDialogCareear() {
-    const dialogRef = this.dialog.open(FormCareerComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      this.careerService.create(result, this.dataSourceCareer.length).subscribe({
-        next: (r) => this.dataSourceCareer = r,
-      })
-    });
-  }
 
   getPageData(): void {
     this.loadingService.setIsLoading(true);
@@ -83,6 +73,7 @@ export class CoursesComponent {
   }
 
   editCourseByID(edit: CourseModel) {
+    //console.log({edit});
     const dialogRef = this.dialog.open(FormCourseComponent,{
       data: { edit, careers: this.dataSourceCareer, modalities: this.modalities },
     });

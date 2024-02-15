@@ -35,14 +35,14 @@ export const menuGeneral = [
     {
         name: 'Profesores',
         updated: null,
-        icon: 'person_search',
+        icon: 'group',
         path: '/teachers'
     },
-/*     {
+    {
         name: 'Usuarios',
         updated: null,
-        icon: 'person_search',
+        icon: 'manage_accounts',
         path: '/users'
-    }, */
+    },
 ]
     

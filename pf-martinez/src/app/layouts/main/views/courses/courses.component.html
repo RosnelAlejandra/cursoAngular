@@ -1,6 +1,6 @@
 <div class="flex justify-content-start flex-wrap">
   <div appDirTitles class="flex align-items-center justify-content-center   ">
-      Mantenedor de Cursos y Carreras
+      Mantenedor de Cursos 
   </div>
 </div>
 <div appDirWrap>
@@ -25,30 +25,11 @@
           >
         </app-table>
       </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Carreras
-          </mat-panel-title>
-          <mat-panel-description>
-            Revisa todos nuestrs carreras disponibles 
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="m-1 flex justify-content-end ">
-          <button color="primary" mat-raised-button (click)="openDialogCareear()">Agregar</button>
-        </div>
-        <app-table 
-        [dataSource]="dataSourceCareer" 
-        [displayedColumns]="displayedColumnsCourse"
-        >
-      </app-table>
-      </mat-expansion-panel>
   </mat-accordion>
 </div>
 
 <div class="mt-5">
   <c-callout color="primary">
-    Solo Usuarios Administradores puden agregar nuevos Cursos/Carreras
+    Solo Usuarios Administradores puden agregar nuevos Cursos
   </c-callout>
 </div>

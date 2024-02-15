@@ -22,6 +22,7 @@ import { CalloutModule } from '@coreui/angular';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatCardModule} from '@angular/material/card';
+import { ErrorsPipe } from './pipes/errors.pipe';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {MatCardModule} from '@angular/material/card';
     CourseDataPipe,
     CareerDataPipe,
     UserDataPipe,
+    ErrorsPipe,
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ import {MatCardModule} from '@angular/material/card';
     DirWrapDirective,
 
     StudentDataPipe,
-
+    ErrorsPipe,
+    
     MatStepperModule,
     MatExpansionModule,
     MatIconModule,
