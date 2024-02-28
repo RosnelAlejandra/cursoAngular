@@ -3,7 +3,7 @@ import { SectionListNav } from './models/menu.models';
 import { menuGeneral, menuStudents } from './mocks/data';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
-import { UsersModel } from './views/users/models/models';
+/* import { UsersModel } from './views/users/models/models'; */
 import { Store } from '@ngrx/store';
 import { selectProfile, selectRolProfile } from '../../core/store/profile/selectors';
 import { ProfileState } from '../../core/store/profile/reducers';
