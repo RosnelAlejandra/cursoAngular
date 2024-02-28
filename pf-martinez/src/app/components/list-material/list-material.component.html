@@ -1,9 +1,8 @@
-<div mat-subheader>{{nameTitles}}</div>
 <ng-container *ngFor="let folder of listArray">
   <mat-list-item>
-    <mat-icon matListItemIcon ng>{{ folder.icon }}</mat-icon>
     <div matListItemTitle>{{folder.name}}</div>
-    <div matListItemLine *ngIf="folder.updated">{{folder.updated | date}}</div>
+    <div matListItemLine *ngIf="folder.start">{{folder.start | date}}</div>
+    <div matListItemLine *ngIf="folder.end">{{folder.end | date}}</div>
   </mat-list-item>
 </ng-container>
 

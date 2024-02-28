@@ -7,6 +7,9 @@ import { AlertsService } from './alerts.service';
 import { LoadingService } from './loading.service';
 import { HttpClient } from '@angular/common/http';
 import { UsersService } from './users.service';
+import { Store } from '@ngrx/store';
+import { actionsAuth } from '../store/auth/actions';
+import { actionsProfile } from '../store/profile/actions';
 
 interface LoginData {
   email: null | string;
@@ -22,7 +25,8 @@ export class AuthService {
       private alertsService: AlertsService,
       private loadingService: LoadingService,
       private usersService: UsersService,
-      private httpClient: HttpClient
+      private httpClient: HttpClient,
+      private store: Store
     ) { }
 
   getUserLogged(): Observable<UsersModel | null>{
@@ -35,6 +39,21 @@ export class AuthService {
 
   private setAuthUser(user: UsersModel): void {
     this.authUser = user;
+    
+    /* llenamos el store */
+    this.store.dispatch(actionsAuth.setAuth({
+      token: 'THDGSÑOCNDJFNHDB47383sgsg62',
+      time: new Date().getTime(),
+    }));
+
+    this.store.dispatch(actionsProfile.setProfile({
+      id: user.id,
+      firstName:  user.firstName,
+      lastName:  user.lastName,
+      email:  user.email,
+      role:  user.role,
+    }));
+
     localStorage.setItem('token', user.email);
   }
 
@@ -56,6 +75,8 @@ export class AuthService {
     this.router.navigate(['auth', 'login']);
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    this.store.dispatch(actionsProfile.clean());
+    this.store.dispatch(actionsAuth.clean());
   }
   verifyToken(){
     this.loadingService.setIsLoading(true);
@@ -72,9 +93,12 @@ export class AuthService {
           } else {
             this.authUser = null;
             localStorage.removeItem('token');
+            this.store.dispatch(actionsProfile.clean());
+            this.store.dispatch(actionsAuth.clean());
             return false;
           }
-        })
+        }),
+        finalize(()=> this.loadingService.setIsLoading(false))
       );
     
   }

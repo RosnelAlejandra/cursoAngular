@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SectionList } from '../../layouts/main/models/menu.models';
+import { SectionListNav } from '../../layouts/main/models/menu.models';
 
 @Component({
   selector: 'app-nav-list',
@@ -12,7 +12,7 @@ export class NavListComponent {
   nameTitles: string;
 
   @Input() 
-  listArray: SectionList[];
+  listArray: SectionListNav[];
 
   constructor(){
     this.listArray = [];

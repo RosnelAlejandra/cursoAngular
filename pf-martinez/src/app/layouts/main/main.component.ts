@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { SectionList } from './models/menu.models';
+import { SectionListNav } from './models/menu.models';
 import { menuGeneral, menuStudents } from './mocks/data';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { UsersModel } from './views/users/models/models';
+import { Store } from '@ngrx/store';
+import { selectProfile, selectRolProfile } from '../../core/store/profile/selectors';
+import { ProfileState } from '../../core/store/profile/reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -14,24 +18,41 @@ export class MainComponent {
   showFiller = false;
 
   
-  menu1: SectionList[] = menuStudents;
-  menu2: SectionList[] = [];
+  menu1: SectionListNav[] = menuStudents;
+  menu2: SectionListNav[] = [];
   slides: any[] = new Array(3).fill({id: -1, src: '', title: '', subtitle: ''});
   currentRoute: string = '';
-  user: UsersModel | null = null;
+/*   user: UsersModel | null = null; */
+
+  profile$: Observable<ProfileState | null>;
+
   constructor( private router: Router, 
-              private route: ActivatedRoute,
+              private store: Store,
               private authService: AuthService){
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.url;
-        console.log('Ruta actual:', this.currentRoute);
       }
     });
 
-    this.authService.getUserLogged().subscribe({
+    this.profile$ = this.store.select(selectProfile) 
+
+    this.store.select(selectRolProfile).subscribe({
+      next: (rol) => {
+        console.log('rol', rol)
+        if(rol == 'ADMIN') {
+          this.menu2 = menuGeneral
+        }else{
+          this.menu2 = menuGeneral.filter( (m) => m.path != '/users')
+        }
+      }
+    });
+
+/*     this.authService.getUserLogged().subscribe({
       next: (u) => {
-        this.user = u; console.log('user logged in', u);
+        this.user = u; 
+         
+        console.log('user logged in', u);
         if(u?.role == 'ADMIN') {
           this.menu2 = menuGeneral
         }else{
@@ -39,7 +60,7 @@ export class MainComponent {
         }
       }
     })
-
+ */
   }
 
   ngOnInit(): void {

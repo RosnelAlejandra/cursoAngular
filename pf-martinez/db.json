@@ -149,32 +149,32 @@
   "inscriptions": [
     {
       "id": "1",
-      "studentId": 1,
-      "courseId": 5000,
+      "studentId": "1",
+      "courseId": "5000",
       "firstName": "Carla de la Cruz",
       "lastName": "Añiz",
       "email": "canis@mail.com"
     },
     {
       "id": "2",
-      "studentId": 1,
-      "courseId": 5001,
+      "studentId": "1",
+      "courseId": "5001",
       "firstName": "Carla de la Cruz",
       "lastName": "Añiz",
       "email": "canis@mail.com"
     },
     {
       "id": "3",
-      "studentId": 4,
-      "courseId": 5003,
+      "studentId": "4",
+      "courseId": "5003",
       "firstName": "Juan",
       "lastName": "Valdez",
       "email": "jvaldez@mail.com"
     },
     {
       "id": "4",
-      "studentId": 4,
-      "courseId": 5002,
+      "studentId": "4",
+      "courseId": "5002",
       "firstName": "Juan",
       "lastName": "Valdez",
       "email": "jvaldez@mail.com"
@@ -188,20 +188,20 @@
       "email": "rzapata@mail.com"
     },
     {
-      "id": "6",
-      "studentId": "4",
-      "courseId": "5000",
-      "firstName": "Juan",
-      "lastName": "Valdez",
-      "email": "jvaldez@mail.com"
-    },
-    {
       "id": "8",
       "studentId": "3",
       "courseId": "5000",
       "firstName": "Mario",
       "lastName": "Añiz",
       "email": "manis@mail.com"
+    },
+    {
+      "id": "8",
+      "studentId": "2",
+      "courseId": "5000",
+      "firstName": "Rosmery",
+      "lastName": "Zapata",
+      "email": "rzapata@mail.com"
     }
   ],
   "courses": [
