@@ -1,7 +1,49 @@
 <div *ngIf="isLoading$ | async; else notLoading">CARGANDO...</div>
 
-<ng-template #notLoading>
-    <pre>{{ dataCourse | json }}</pre>
+<ng-template #notLoading>  
+    <div class="flex justify-content-start flex-wrap">
+        <div appDirTitles class="flex align-items-center justify-content-center   ">
+            Dashboar 
+        </div>
+      </div>
+      <hr>
+
+      <h4 class="mt-1">Cursos</h4>
+      <div class="grid formgrid m-1 ">
+        <div class="col-6" *ngFor="let course of dataCourse">
+            <mat-card  class="m-3 card">
+                <mat-card-header>
+                    <mat-card-title>{{ course.name }}</mat-card-title>
+                    <mat-card-subtitle>Precio: {{ course.price }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>Descripción: {{ course.description }}</p>
+                    <p>Duración: {{ course.durations }} Semanas </p>
+                    <p>Modalidad: {{ getModalityName(course.modality[0]) }}</p>
+                    <p>Inicio: {{ course.schedule.start | date }}</p>
+                    <p>Estado: {{ getStatusText(course.status) }}</p>
+                  </mat-card-content>
+             </mat-card>
+        </div>
+       </div>
+
     <hr>
-    <pre>{{ dataCareear | json }}</pre>
+
+    <h4>Carreras</h4>
+    <div class="grid formgrid m-1 ">
+        <div class="col-6" *ngFor="let career of dataCareear">
+            <mat-card  class="m-3 card-2">
+                <mat-card-header>
+                    <mat-card-title>{{ career.name }}</mat-card-title>
+                    <mat-card-subtitle>Precio: {{ career.price }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>Descripción: {{ career.description }}</p>
+                    <p>Duración: {{ career.durations }} Semanas </p>
+                    <p>Estado: {{ getStatusText(career.status) }}</p>
+                  </mat-card-content>
+            </mat-card>
+        </div>
+       </div>
+
 </ng-template>

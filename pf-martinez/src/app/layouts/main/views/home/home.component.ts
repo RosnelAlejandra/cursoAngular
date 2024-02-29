@@ -22,13 +22,24 @@ export class HomeComponent implements OnDestroy {
   subscriptions: Subscription[] = [];
 
   constructor( private store: Store ){
-   this.store.dispatch(DasboardActions.loadDasboards());
+    /* disparamos las acciones  */
+   this.store.dispatch(DasboardActions.loadCourses());
+   this.store.dispatch(DasboardActions.loadCareears());
+
    this.isLoading$ = this.store.select(selectLoadingState);
 
+   /* Buscamos la data */
    this.subscriptions.push(
     this.store.select(selectDasboardState).subscribe({
       next: (state: DashboardState) => {
         this.dataCourse = state.courses
+      }
+     })
+   )
+   this.subscriptions.push(
+    this.store.select(selectDasboardState).subscribe({
+      next: (state: DashboardState) => {
+        this.dataCareear = state.careers
       }
      })
    )
@@ -50,5 +61,14 @@ export class HomeComponent implements OnDestroy {
    //this.courseSubscription?.unsubscribe();
    this.subscriptions.forEach(s=>s.unsubscribe());
  }
+
+ getModalityName(modalityId: number): string {
+  const modalities = ['Presencial', 'Online'];
+  return modalities[modalityId - 1];
+}
+
+getStatusText(status: number): string {
+  return status === 1 ? 'Activo' : 'Inactivo';
+}
 
 }

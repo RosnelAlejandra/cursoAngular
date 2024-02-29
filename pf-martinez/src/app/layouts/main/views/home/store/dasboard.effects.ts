@@ -10,13 +10,24 @@ import { CareerService } from '../../../../../core/services/career.service';
 @Injectable()
 export class DasboardEffects {
 
-  loadDasboards$ = createEffect(() => {
+  loadCourses$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(DasboardActions.loadDasboards), //se filtra las acciones ,[]) 
+      ofType(DasboardActions.loadCourses), //se filtra las acciones ,[]) 
       concatMap(() =>
         this.courseService.getCources().pipe(
-          map(data => DasboardActions.loadDasboardsSuccess({ data })),
-          catchError(error => of(DasboardActions.loadDasboardsFailure({ error }))))
+          map(data => DasboardActions.loadCoursesSuccess({ data })),
+          catchError(error => of(DasboardActions.loadCoursesFailure({ error }))))
+      )
+    );
+  });
+
+  loadCareears$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(DasboardActions.loadCareears), //se filtra las acciones ,[]) 
+      concatMap(() =>
+        this.careerService.getCareers().pipe(
+          map(data => DasboardActions.loadCareearsSuccess({ data })),
+          catchError(error => of(DasboardActions.loadCareearsFailure({ error }))))
       )
     );
   });

@@ -20,17 +20,36 @@ export const initialState: DashboardState = {
 
 export const reducer = createReducer(
   initialState,
-  on(DasboardActions.loadDasboards, state => {return {
+  /* Cursos */
+  on(DasboardActions.loadCourses, state => {return {
     ...state,
     loading: true,
   }}),
-  on(DasboardActions.loadDasboardsSuccess, (state, action) => {
+  on(DasboardActions.loadCoursesSuccess, (state, action) => {
       return {
       ...state,
       courses: action.data,
       loading: false,
   }}),
-  on(DasboardActions.loadDasboardsFailure, (state, action) => {
+  on(DasboardActions.loadCoursesFailure, (state, action) => {
+      return {
+      ...state,
+      loading: false,
+      error: action.error
+  }}),
+
+  /* Carreras */
+  on(DasboardActions.loadCareears, state => {return {
+    ...state,
+    loading: true,
+  }}),
+  on(DasboardActions.loadCareearsSuccess, (state, action) => {
+      return {
+      ...state,
+      careers: action.data,
+      loading: false,
+  }}),
+  on(DasboardActions.loadCareearsFailure, (state, action) => {
       return {
       ...state,
       loading: false,

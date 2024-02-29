@@ -6,6 +6,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { DasboardEffects } from './store/dasboard.effects';
 import { StoreModule } from '@ngrx/store';
 import { dasboardFeature } from './store/dasboard.reducer';
+import { SharedModule } from '../../../../shared/shared.module';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -16,7 +18,8 @@ import { dasboardFeature } from './store/dasboard.reducer';
   imports: [
     CommonModule,
     HomeRoutingModule,
-
+    SharedModule,
+    MatCardModule,
     /* importamos el reducer */
     StoreModule.forFeature(dasboardFeature),
 
